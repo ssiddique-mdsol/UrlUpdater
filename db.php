@@ -2,7 +2,7 @@
 // Create the database table on plugin activation
 function create_plugin_table() {
     global $wpdb;
-    $table_name = $wpdb->prefix . 'plugin_settings';
+    $table_name = $wpdb->prefix . 'plugin_settings'; // Use the correct table name with prefix
     $charset_collate = $wpdb->get_charset_collate();
 
     $sql = "CREATE TABLE $table_name (
@@ -14,9 +14,9 @@ function create_plugin_table() {
 
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql);
+    // add_option( 'test_db_version', $test_db_version );
 }
 
-register_activation_hook(__FILE__, 'create_plugin_table');
 
 // Handle database interactions (insert, retrieve settings, etc.)
 global $wpdb;

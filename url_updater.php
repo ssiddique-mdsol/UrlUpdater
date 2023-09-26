@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 Plugin Name: UrlUpdater
 Description: Update outgoing links on fly
@@ -10,3 +10,5 @@ Author: Shahid Siddique
 require_once(plugin_dir_path(__FILE__) . 'db.php');
 require_once(plugin_dir_path(__FILE__) . 'admin.php');
 require_once(plugin_dir_path(__FILE__) . 'updater.php');
+
+register_activation_hook(__FILE__, 'create_plugin_table');
